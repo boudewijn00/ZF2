@@ -3,38 +3,31 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Checklist\Controller\Checklist' => 'Checklist\Controller\ChecklistController',
+            'Checklist\Controller\Task' => 'Checklist\Controller\TaskController',
         ),
     ),
-    
     'router' => array(
         'routes' => array(
-            'checklist' => array(
-                'type'    => 'Literal',
+            'task' => array(
+                'type' => 'Segment',
                 'options' => array(
-                    'route'    => '/task',
+                    'route' => '/task[/:action[/:id]]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Checklist\Controller',
-                        'controller'    => 'Task',
-                        'action'        => 'index',
+                        'controller' => 'Task',
+                        'action' => 'index',
+                    ),
+                    'constraints' => array(
+                        'action' => '(add|edit|delete)',
+                        'id' => '[0-9]+',
                     ),
                 ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                        )
-                    )
-                )
-            )
-        )
+            ),
+        ),
     ),
-    
     'view_manager' => array(
         'template_path_stack' => array(
-            'album' => __DIR__ . '/../view',
+            'checklist' => __DIR__ . '/../view',
         ),
     ),
 );
