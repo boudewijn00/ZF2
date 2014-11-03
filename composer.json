@@ -7,12 +7,19 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/boudewijn00/TNFP2.git"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*",
-        "predis/predis": "1.1.*@dev"
+        "predis/predis": "1.1.*@dev",
+        "Tnfp/Tnfp": "dev-master"
     },
     "autoload": {
-        "psr-0": {"Tnfp\\": "vendor/Tnfp/lib/", "Album": "module/Album/src/"}
+        "psr-0": {"Tnfp\\": "vendor/Tnfp/Tnfp/lib/", "Album": "module/Album/src/"}
     }
 }

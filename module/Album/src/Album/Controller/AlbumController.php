@@ -112,13 +112,13 @@ class AlbumController extends AbstractActionController {
         
         $foo = new \Tnfp\FooClass("foo");
         
-        \Predis\Autoloader::register();
+        /*\Predis\Autoloader::register();
         
         $client = new \Predis\Client();
         $client->set('foo', 'bar');
         $value = $client->get('foo');
 
-        echo $value;
+        echo $value;*/
         
     }
 
